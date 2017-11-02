@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Show letter grade</title>
+	<script>
+		var entry;
+var letterGrade;
+var total = 0; 
+var entryCount = 0; 
+var errorString = "Entry must by a valid number from 0 through 100\nOr enter 999 to end entries";
+do {
+    // get something from user
+    entry = prompt("Enter number grade from 0 through 100\nOr enter 999 to end entries", 999);
+    // the user may also enter something that is not a number
+    if(isNaN(entry)){  // check if it is not a number
+        alert(errorString);  //show error if not a number
+    }else{
+        // you now know you have a number so you can parse it
+        entry = parseInt(entry); // convert to number
+        // now check for a valid number
+        if (entry >= 0 && entry <= 100) {
+           // number is in valid range check each grade
+            if (entry < 60) {
+                        letterGrade = "F";
+                    } else if (entry <= 67) {
+                        letterGrade = "D";
+                    } else if (entry <= 79) {
+                        letterGrade = "C";
+                    } else if (entry <= 87) {
+                        letterGrade = "B";
+                    } else {
+                        letterGrade = "A";
+           } 
+           total += entry;   // add the total
+           entryCount += 1;  // add ont to count
+           // display entry and grade
+           alert("Number grade = " + entry + "\nLetter grade = " + letterGrade);
+        }else // if not in valid range check if its 999
+        if (entry != 999) {
+           alert(errorString); // no show error
+        }
+    }
+}while (entry != 999);  // do this till 999 is entered
+
+	</script>
+</head>
+<body>
+<section>
+    <h1>This page is displayed after the JavaScript is executed</h1>
+</section>
+</body>
+</html>
